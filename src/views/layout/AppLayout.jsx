@@ -3,6 +3,8 @@ import { Outlet } from 'react-router-dom'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { useThemeContext } from '../../theme/ThemeContextProvider'
 
+import AppSidebar from '../../components/app-sidebar/AppSidebar'
+
 const AppLayout = () => {
     const { theme } = useThemeContext()
 
@@ -10,13 +12,14 @@ const AppLayout = () => {
         <ThemeProvider theme={theme}>
             <CssBaseline />
 
-            <header>HEADER</header>
+            <header className="header">HEADER</header>
 
-            <main>
+            <main className="main">
+                <AppSidebar />
                 <Outlet />
             </main>
 
-            <footer>FOOTER</footer>
+            <footer className="footer">FOOTER</footer>
         </ThemeProvider>
     )
 }
