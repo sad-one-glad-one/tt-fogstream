@@ -1,26 +1,60 @@
-import {
-    setErrorAction,
-    toggleIsLoadingAction
-} from '../store/PageReducer'
-
 import axios from 'axios'
 
-import { setNewsAction } from '../store/NewsReducer'
+import {
+  setErrorAction,
+  toggleIsLoadingAction,
+} from '../store/PageReducer'
 
-const API_KEY = '83963dbf43d847c7b3da0b438ec3685b'
-const URL = `https://newsapi.org/v2/everything?q=tesla&from=2023-08-30&sortBy=publishedAt&apiKey=${API_KEY}`
+import { setArticleAction, setNewsAction } from '../store/NewsReducer'
+
+const API_KEY = 'ee185ee9320d4b6ab3e3719db17130ef'
+const URL = 'https://newsapi.org/v2/top-headlines'
+const country = 'us'
+const category = 'business'
 
 export const getNews = () => {
-    return function(dispatch) {
-        dispatch(toggleIsLoadingAction(true))
+  const params = {
+    apiKey: API_KEY,
+    pageSize: 3,
+    page: 1,
+    country,
+    category,
+  }
 
-        axios.get(URL)
-            .then(response => {
-                dispatch(setNewsAction(response.data.articles))
-            })
-            .catch(error => {
-                dispatch(setErrorAction(error.message))
-            })
-            .finally(() => dispatch(toggleIsLoadingAction(false)))
-    }
+  return function(dispatch) {
+    dispatch(toggleIsLoadingAction(true))
+
+    axios.get(URL, { params })
+      .then(response => {
+        dispatch(setNewsAction(response.data.articles))
+        params.page += 1
+      })
+      .catch(error => {
+        dispatch(setErrorAction(error.message))
+      })
+      .finally(() => dispatch(toggleIsLoadingAction(false)))
+  }
+}
+
+export const fetchArticle = (title) => {
+  const params = {
+    apiKey: API_KEY,
+    q: title,
+    country,
+    category,
+  }
+    
+  return function(dispatch) {
+    dispatch(toggleIsLoadingAction(true))
+
+    axios.get(URL, { params })
+      .then(response => {
+        dispatch(setArticleAction(response.data.articles))
+        params.page += 1
+      })
+      .catch(error => {
+        dispatch(setErrorAction(error.message))
+      })
+      .finally(() => dispatch(toggleIsLoadingAction(false)))
+  }
 }
