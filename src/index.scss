@@ -1,11 +1,11 @@
 @import "reset";
 
-@import "views/not-found/NotFoundView";
-@import "views/settings/SettingsView";
-@import "views/about/AboutView";
-@import "views/hero/HeroView";
-@import "views/help/HelpView";
-@import "views/layout/AppLayout";
+.app-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
 
 .cluster-icon {
   background-color: #333;

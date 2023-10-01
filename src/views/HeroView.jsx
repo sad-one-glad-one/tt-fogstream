@@ -1,12 +1,12 @@
 import { useEffect, useId } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
+import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
-import imageNotFound from '../../assets/image-not-found.jpg'
-import { getNews } from '../../api/getNews'
-import { ruDateFormat } from '../../utils/ruDateFormat'
+import imageNotFound from '../assets/image-not-found.jpg'
+import { getNews } from '../api/getNews'
+import { ruDateFormat } from '../utils/ruDateFormat'
 
 const HeroView = () => {
   const dispatch = useDispatch()
@@ -19,7 +19,13 @@ const HeroView = () => {
   }, [dispatch, newsList])
 
   return (
-    <section className="hero">
+    <Box sx={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+      gridGap: '20px',
+      width: '100%',
+      paddingTop: '16px',
+    }}>
       {newsList.map((item, index) =>
         <Card key={`${id}-${index}`}>
           <Link to={`/article/${item.title}`}>
@@ -45,7 +51,7 @@ const HeroView = () => {
           </CardContent>
         </Card>
       )}
-    </section>
+    </Box>
   )
 }
 

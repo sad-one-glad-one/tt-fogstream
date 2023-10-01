@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Box } from '@mui/material'
 
-import { fetchArticle } from '../../api/getNews'
+import { fetchArticle } from '../api/getNews'
 
-import imageNotFound from '../../assets/image-not-found.jpg'
+import imageNotFound from '../assets/image-not-found.jpg'
 
-import { ruDateFormat } from '../../utils/ruDateFormat'
-import { setArticleAction } from '../../store/NewsReducer'
+import { ruDateFormat } from '../utils/ruDateFormat'
+import { setArticleAction } from '../store/NewsReducer'
 
 const ArticleView = () => {
   const dispatch = useDispatch()
@@ -34,8 +34,10 @@ const ArticleView = () => {
           {article.description}
           {ruDateFormat(article.publishedAt)}
           <img
+            style={{ maxWidth: '240px', cursor: 'pointer' }}
             src={article.urlToImage ?? imageNotFound}
             alt={article.urlToImage ? `picture by ${article.author}` : 'picture not found'}
+            draggable="false"
           />
         </Box>
         : <></>

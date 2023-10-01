@@ -2,8 +2,7 @@ import { createContext, useContext } from 'react'
 
 import { createTheme } from '@mui/material'
 
-import { useColorTheme } from '../hooks/useColorTheme'
-
+import { useColorTheme } from './useColorTheme'
 
 export const ThemeContext = createContext({
   mode: 'light',
@@ -14,7 +13,6 @@ export const ThemeContext = createContext({
 export const ThemeContextProvider = ({ children }) => {
   const value = useColorTheme()
 
-    
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   )

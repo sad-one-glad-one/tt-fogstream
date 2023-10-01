@@ -2,12 +2,17 @@ import { Outlet } from 'react-router-dom'
 
 import { Box, CssBaseline, ThemeProvider } from '@mui/material'
 
-import { useThemeContext } from '../../theme/ThemeContextProvider'
+import { useThemeContext } from '../theme/ThemeContextProvider'
 
-import AppHeader from '../../components/AppHeader'
+import AppHeader from '../components/AppHeader'
 
 const AppLayout = () => {
   const { theme } = useThemeContext()
+  const mainTagStyles = {
+    display: 'flex',
+    gridColumnGap: '4px',
+    padding: '10px',
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -15,11 +20,11 @@ const AppLayout = () => {
 
       <AppHeader />
 
-      <Box variant="main" className="main">
+      <Box sx={mainTagStyles} variant="main">
         <Outlet />
       </Box>
 
-      <footer className="footer">FOOTER</footer>
+      <Box variant="footer" sx={{ marginTop: 'auto' }}>FOOTER</Box>
     </ThemeProvider>
   )
 }

@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 
-import NotFoundView from './views/not-found/NotFoundView'
-import SettingsView from './views/settings/SettingsView'
-import AboutView from './views/about/AboutView'
-import HeroView from './views/hero/HeroView'
-import HelpView from './views/help/HelpView'
-import AppLayout from './views/layout/AppLayout'
-import ArticleView from './views/article/ArticleView'
+import NotFoundView from './views/NotFoundView'
+import SettingsView from './views/SettingsView'
+import AboutView from './views/AboutView'
+import HeroView from './views/HeroView'
+import HelpView from './views/HelpView'
+import AppLayout from './views/AppLayout'
+import ArticleView from './views/ArticleView'
 
 function App() {
   return (

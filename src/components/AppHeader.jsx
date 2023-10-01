@@ -1,19 +1,19 @@
 import {
   AppBar,
+  Button,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   Toolbar,
-  Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch } from 'react-redux'
 
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { toggleSidebarVisibilityAction } from '../store/PageReducer'
 
@@ -37,11 +37,14 @@ const AppHeader = () => {
             <MenuIcon />
           </IconButton>
         }
-        <Link to="/">
-          <Typography>
-            Главная
-          </Typography>
-        </Link>
+        <Button
+          variant="outlined"
+          color="secondary"
+          component={RouterLink}
+          to="/"
+        >
+          Главная
+        </Button>
         {!isTablet && navLinks()}
       </Toolbar>
       {isTablet && <AppSidebar>{navLinks()}</AppSidebar>}
@@ -70,11 +73,16 @@ const navLinks = () => {
           key={link.name}
           disablePadding
         >
-          <Link style={{ width: '100%' }} to={link.path}>
-            <ListItemButton sx={{ width: '100%' }}>
+          <Button
+            color="secondary"
+            component={RouterLink}
+            to={link.path}
+            sx={{ width: '100%' }}
+          >
+            <ListItemButton>
               <ListItemText primary={link.name}/>
             </ListItemButton>
-          </Link>
+          </Button>
         </ListItem>
       )}
     </List>
