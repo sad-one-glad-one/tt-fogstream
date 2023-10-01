@@ -37,14 +37,6 @@ const AppHeader = () => {
             <MenuIcon />
           </IconButton>
         }
-        <Button
-          variant="outlined"
-          color="secondary"
-          component={RouterLink}
-          to="/"
-        >
-          Главная
-        </Button>
         {!isTablet && navLinks()}
       </Toolbar>
       {isTablet && <AppSidebar>{navLinks()}</AppSidebar>}
@@ -54,6 +46,7 @@ const AppHeader = () => {
 
 const navLinks = () => {
   const links = [
+    { name: 'Главная', path: '/' },
     { name: 'О нас', path: '/about' },
     { name: 'Настройки', path: '/settings' },
     { name: 'Помощь', path: '/help' },
