@@ -38,7 +38,7 @@ const AppHeader = () => {
           </IconButton>
         }
         <Link to="/">
-          <Typography sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+          <Typography>
             Главная
           </Typography>
         </Link>
