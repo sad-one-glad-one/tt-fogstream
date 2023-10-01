@@ -19,7 +19,7 @@ const ArticleView = () => {
 
   useEffect(() => {
     return () => dispatch(setArticleAction({}))
-  }, [location])
+  }, [location, dispatch])
 
   useEffect(() => {
     dispatch(fetchArticle(title))
