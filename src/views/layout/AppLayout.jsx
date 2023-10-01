@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { Box, CssBaseline, ThemeProvider } from '@mui/material'
 
 import { useThemeContext } from '../../theme/ThemeContextProvider'
 
@@ -15,9 +15,9 @@ const AppLayout = () => {
 
       <AppHeader />
 
-      <main className="main">
+      <Box variant="main" className="main">
         <Outlet />
-      </main>
+      </Box>
 
       <footer className="footer">FOOTER</footer>
     </ThemeProvider>
