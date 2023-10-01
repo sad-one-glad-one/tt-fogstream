@@ -6,8 +6,8 @@ import { pageReducer } from './PageReducer'
 import { newsReducer } from './NewsReducer'
 
 const rootReducer = combineReducers({
-    page: pageReducer,
-    news: newsReducer,
+  page: pageReducer,
+  news: newsReducer,
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
