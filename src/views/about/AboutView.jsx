@@ -1,4 +1,4 @@
-import AppMap from '../../components/app-map/AppMap'
+import AppMap from '../../components/AppMap'
 
 const AboutView = () => {
   return (

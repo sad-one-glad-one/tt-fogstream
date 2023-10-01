@@ -4,7 +4,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 
 import { Icon, divIcon, point } from 'leaflet'
 
-import placeholder from '../../assets/placeholder.png'
+import placeholder from '../assets/placeholder.png'
 
 const customIcon = new Icon({
   iconUrl: placeholder,

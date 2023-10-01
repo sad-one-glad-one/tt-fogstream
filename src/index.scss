@@ -7,4 +7,15 @@
 @import "views/help/HelpView";
 @import "views/layout/AppLayout";
 
-@import "components/app-map/AppMap";
+.cluster-icon {
+  background-color: #333;
+  height: 2em;
+  width: 2em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 0 0 5px #fff;
+}
