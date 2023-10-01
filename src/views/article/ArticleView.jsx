@@ -11,7 +11,7 @@ import imageNotFound from '../../assets/image-not-found.jpg'
 import { ruDateFormat } from '../../utils/ruDateFormat'
 import { setArticleAction } from '../../store/NewsReducer'
 
-const Article = () => {
+const ArticleView = () => {
   const dispatch = useDispatch()
   const location = useLocation()
   const { title } = useParams()
@@ -44,4 +44,4 @@ const Article = () => {
   )
 }
 
-export default Article
+export default ArticleView
