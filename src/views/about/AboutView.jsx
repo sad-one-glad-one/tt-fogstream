@@ -1,9 +1,9 @@
+import AppMap from '../../components/app-map/AppMap'
+
 const AboutView = () => {
-    return (
-        <div>
-            AboutView
-        </div>
-    )
+  return (
+    <AppMap />
+  )
 }
 
 export default AboutView
