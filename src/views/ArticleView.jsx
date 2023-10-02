@@ -2,13 +2,16 @@ import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Box, Typography } from '@mui/material'
+import { Box, CircularProgress, Typography } from '@mui/material'
+
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 
 import { fetchArticle } from '../api/getNews'
 
 import { ruDateFormat } from '../utils/ruDateFormat'
 
 import { setArticleAction } from '../store/NewsReducer'
+import 'react-photo-view/dist/react-photo-view.css'
 
 const ArticleView = () => {
   const dispatch = useDispatch()
@@ -29,17 +32,23 @@ const ArticleView = () => {
       {article
         ? <Box>
           <Typography>{article.title}</Typography>
-          <img
-            style={{ maxWidth: '300px', cursor: 'pointer' }}
-            src={article.urlToImage}
-            alt={article.urlToImage ? `picture by ${article.author}` : 'picture not found'}
-            draggable="false"
-          />
+          <PhotoProvider>
+            <PhotoView src={article.urlToImage}>
+              <img
+                style={{ maxWidth: '300px', cursor: 'pointer' }}
+                src={article.urlToImage}
+                alt={article.urlToImage ? `picture by ${article.author}` : 'picture not found'}
+                draggable="false"
+              />
+            </PhotoView>
+          </PhotoProvider>
           <Typography>Автор: {article.author}</Typography>
           <Typography>{article.description}</Typography>
           {ruDateFormat(article.publishedAt)}
         </Box>
-        : <></>
+        : <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100vh' }}>
+          <CircularProgress color="inherit" />
+        </Box>
       }
     </>
   )
