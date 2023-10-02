@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import { Box, CssBaseline, ThemeProvider } from '@mui/material'
+import { Box, CssBaseline, Divider, ThemeProvider } from '@mui/material'
 
 import { useThemeContext } from '../theme/ThemeContextProvider'
 
@@ -24,7 +24,10 @@ const AppLayout = () => {
         <Outlet />
       </Box>
 
-      <Box variant="footer" sx={{ marginTop: 'auto' }}>FOOTER</Box>
+      <Box variant="footer" sx={{ marginTop: 'auto' }}>
+        <Divider />
+        Место для футера (:
+      </Box>
     </ThemeProvider>
   )
 }

@@ -4,6 +4,7 @@ const defaultState = {
 }
 
 const SET_NEWS = 'SET_NEWS'
+const SORT_NEWS = 'SORT_NEWS'
 const SET_ARTICLE = 'SET_ARTICLE'
 
 export const newsReducer = (state = defaultState, action) => {
@@ -12,6 +13,11 @@ export const newsReducer = (state = defaultState, action) => {
     return {
       ...state,
       news: [...state.news, ...action.payload],
+    }
+  case SORT_NEWS:
+    return {
+      ...state,
+      news: [...action.payload],
     }
   case SET_ARTICLE:
     return {
@@ -25,4 +31,5 @@ export const newsReducer = (state = defaultState, action) => {
 }
 
 export const setNewsAction = (payload) => ({ type: SET_NEWS, payload })
+export const sortNewsAction = (payload) => ({ type: SORT_NEWS, payload })
 export const setArticleAction = (payload) => ({ type: SET_ARTICLE, payload })

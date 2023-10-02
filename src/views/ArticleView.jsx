@@ -2,13 +2,12 @@ import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import { fetchArticle } from '../api/getNews'
 
-import imageNotFound from '../assets/image-not-found.jpg'
-
 import { ruDateFormat } from '../utils/ruDateFormat'
+
 import { setArticleAction } from '../store/NewsReducer'
 
 const ArticleView = () => {
@@ -29,16 +28,16 @@ const ArticleView = () => {
     <>
       {article
         ? <Box>
-          {article.title}
-          {article.author}
-          {article.description}
-          {ruDateFormat(article.publishedAt)}
+          <Typography>{article.title}</Typography>
           <img
-            style={{ maxWidth: '240px', cursor: 'pointer' }}
-            src={article.urlToImage ?? imageNotFound}
+            style={{ maxWidth: '300px', cursor: 'pointer' }}
+            src={article.urlToImage}
             alt={article.urlToImage ? `picture by ${article.author}` : 'picture not found'}
             draggable="false"
           />
+          <Typography>Автор: {article.author}</Typography>
+          <Typography>{article.description}</Typography>
+          {ruDateFormat(article.publishedAt)}
         </Box>
         : <></>
       }
