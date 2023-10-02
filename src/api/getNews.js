@@ -37,7 +37,7 @@ export const getNews = () => {
   }
 }
 
-export const fetchArticle = (title) => {
+export const getArticle = (title) => {
   const params = {
     apiKey: API_KEY,
     q: title,

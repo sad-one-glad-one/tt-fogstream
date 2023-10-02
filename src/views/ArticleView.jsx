@@ -6,7 +6,7 @@ import { Box, CircularProgress, Typography } from '@mui/material'
 
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 
-import { fetchArticle } from '../api/getNews'
+import { getArticle } from '../api/getNews'
 
 import { ruDateFormat } from '../utils/ruDateFormat'
 
@@ -24,7 +24,7 @@ const ArticleView = () => {
   }, [location, dispatch])
 
   useEffect(() => {
-    dispatch(fetchArticle(title))
+    dispatch(getArticle(title))
   }, [title, dispatch])
 
   return (
